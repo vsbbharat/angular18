@@ -1,0 +1,14 @@
+<div class="notification-header">
+    <h2>List Of Notification</h2>
+    <button mat-raised-button color="primary">Create</button>
+  </div>
+  <div class="notification-list">
+    <mat-card class="notification-item" *ngFor="let notification of notifications">
+      <div class="notification-text">{{ notification }}</div>
+      <div class="notification-actions">
+        <button mat-button color="accent">Edit</button>
+        <button mat-button color="warn">Delete</button>
+      </div>
+    </mat-card>
+  </div>
+  
