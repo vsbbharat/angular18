@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <span>Installation</span>
+  </mat-toolbar>
+<div fxLayout="row" fxLayoutAlign="start stretch" style="height: 100vh;">
+  <app-sidebar></app-sidebar>
+  <div fxFlex>
+    <div class="container">
+        <h2>Checklist</h2>
+        <mat-card *ngFor="let item of items" class="checklist-item">
+          <div>{{ item }}</div>
+          <button mat-button color="primary">Edit</button>
+          <button mat-button color="warn">Delete</button>
+        </mat-card>
+        <button mat-raised-button color="accent" class="create-button">Create</button>
+      </div>
+      
+  </div>
+</div>

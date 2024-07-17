@@ -4,7 +4,7 @@ import { Inject }           from '@angular/core';
 import { signal }           from '@angular/core';
 import { Injectable }       from '@angular/core';
 import { PLATFORM_ID }      from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 
 // External modules
 //import { TranslateService } from '@ngx-translate/core';

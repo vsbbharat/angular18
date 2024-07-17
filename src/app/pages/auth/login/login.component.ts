@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AppService } from '@services/app.service';
 
 @Component({
   selector: 'app-login',
@@ -18,17 +19,19 @@ import { MatCardModule } from '@angular/material/card';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private service: AppService) {
     this.loginForm = this.fb.group({
       userId: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-  onSubmit() {
+  async onSubmit() {
     if (this.loginForm.valid) {
       const { userId, password } = this.loginForm.value;
       console.log('User Id:', userId);
       console.log('Password:', password);
+       const p = await this.service.authenticate(userId,password);
+       console.log(p);
       // Handle the login logic here
     }
   }

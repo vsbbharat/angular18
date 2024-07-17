@@ -5,6 +5,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -15,15 +16,35 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "es2020",
     "lib": [
       "ES2022",
-      "dom"
-    ]
+      "dom",
+      "ES2021.String"
+    ],
+    "paths": {
+      "@blocks/*": ["src/app/shared/components/blocks/*"],
+      "@forms/*": ["src/app/shared/components/forms/*"],
+      "@layouts/*": ["src/app/shared/components/layouts/*"],
+      "@modals/*": ["src/app/shared/components/modals/*"],
+      "@enums/*": ["src/app/shared/enums/*"],
+      "@directives/*": ["src/app/shared/directives/*"],
+      "@pipes/*": ["src/app/shared/pipes/*"],
+      "@validators/*": ["src/app/shared/validators/*"],
+      "@factories/*": ["src/app/shared/factories/*"],
+      "@guards/*": ["src/app/shared/guards/*"],
+      "@helpers/*": ["src/app/shared/helpers/*"],
+      "@models/*": ["src/app/shared/models/*"],
+      "@interfaces/*": ["src/app/shared/interfaces/*"],
+      "@services/*": ["src/app/shared/services/*"],
+      "@env/*": ["src/environments/*"]
+    },
+    "useDefineForClassFields": false,
   },
+  
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

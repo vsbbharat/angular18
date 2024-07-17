@@ -9,6 +9,10 @@ export const routes: Routes = [
         path          : 'home',
         loadComponent : () => import('./pages/home/home.component').then(m => m.HomeComponent),
       },
+      {
+        path          : 'checklist',
+        loadComponent : () => import('./pages/checklist/checklist.component').then(m => m.ChecklistComponent),
+      },
       { path : '', redirectTo : '/home', pathMatch : 'full' },
       {
         path          : '**',
