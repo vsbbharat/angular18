@@ -4,6 +4,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AppService } from '@services/app.service';
+import { AuthService } from '@services/auth.service';
+import { AuthToken, UserDetail } from '@models/auth.model';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +20,9 @@ import { AppService } from '@services/app.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  userDetail: UserDetail = new UserDetail();
 
-  constructor(private fb: FormBuilder,private service: AppService) {
+  constructor(private fb: FormBuilder,private service: AuthService) {
     this.loginForm = this.fb.group({
       userId: ['', Validators.required],
       password: ['', Validators.required]
@@ -30,8 +33,11 @@ export class LoginComponent {
       const { userId, password } = this.loginForm.value;
       console.log('User Id:', userId);
       console.log('Password:', password);
-       const p = await this.service.authenticate(userId,password);
-       console.log(p);
+       this.service.login(this.userDetail).subscribe((data:AuthToken)=>{
+        console.log(data);
+       },(error)=>{
+        console.log(error);
+       })
       // Handle the login logic here
     }
   }
