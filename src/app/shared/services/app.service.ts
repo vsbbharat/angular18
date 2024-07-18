@@ -120,12 +120,12 @@ export class AppService
 
   private initAuthHeader() : void
   {
-    // const token = StorageHelper.getToken();
-    // if (!token)
-    //   return;
+    const data = StorageHelper.getToken();
+    if (!data)
+      return;
 
-    // this.api.defaults.headers.common['Authorization'] = `Bearer ${token.jwtToken}`;
-    // this.api.defaults.headers.common['Token']         = token.jwtToken;
+    this.api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+   // this.api.defaults.headers.common['Token']         = data.token;
   }
 
   public initRequestInterceptor(instance : AxiosInstance) : void

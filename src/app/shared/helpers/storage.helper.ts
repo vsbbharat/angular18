@@ -8,7 +8,7 @@ import { environment }  from '@env/environment';
 import { StorageKey }   from '@enums/storage-key.enum';
 
 // Models
-// import { AuthResponse } from '@models/auth-response.model';
+import { AuthResponse } from '@models/auth-response';
 
 @Injectable()
 export class StorageHelper
@@ -21,24 +21,23 @@ export class StorageHelper
 
   // NOTE Token
 
-  // public static setToken(user : AuthResponse) : void
-  // {
-  //   StorageHelper.setItem(StorageKey.TOKEN, user);
-  // }
+  public static setToken(user : AuthResponse) : void
+  {
+    StorageHelper.setItem(StorageKey.TOKEN, user);
+  }
 
-  // public static removeToken() : void
-  // {
-  //   StorageHelper.removeItem(StorageKey.TOKEN);
-  // }
+  public static removeToken() : void
+  {
+    StorageHelper.removeItem(StorageKey.TOKEN);
+  }
 
-  // public static getToken() : AuthResponse | null
-  // {
-  //   // Prevent SSR error
-  //   if (typeof localStorage === 'undefined')
-  //     return undefined;
-  //   const data = StorageHelper.getItem(StorageKey.TOKEN);
-  //   return data ? new AuthResponse(data) : null;
-  // }
+  public static getToken() : AuthResponse | null
+  {
+    // Prevent SSR error
+    
+    const data = StorageHelper.getItem(StorageKey.TOKEN);
+    return data ? new AuthResponse(data) : null;
+  }
 
   // !SECTION Methods
 
